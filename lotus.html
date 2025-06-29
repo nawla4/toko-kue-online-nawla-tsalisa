@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toko Kue Online Nawla Tsalisa</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <style>
+      /* Basic reset & font */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f0e3;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-logo {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #c97b63;
+        text-decoration: none;
+      }
+      .navbar-logo span {
+        color: #8b5e3c;
+        margin-left: 0.3rem;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .navbar-nav a,
+      .navbar-nav > div > a {
+        text-decoration: none;
+        color: #8b5e3c;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+        transition: color 0.3s ease;
+      }
+      .navbar-nav a:hover,
+      .navbar-nav > div > a:hover {
+        color: #c97b63;
+      }
+
+      /* Dropdown */
+      .navbar .dropdown {
+        position: relative;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 130%;
+        left: 0;
+        background-color: #f8f0e3;
+        min-width: 180px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 10000;
+      }
+
+      .navbar .dropdown-content a {
+        color: #8b5e3c;
+        padding: 0.6rem 1rem;
+        display: block;
+        font-weight: 400;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #c97b63;
+        color: white;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Navbar extra icons */
+      .navbar-extra a {
+        margin-left: 1rem;
+        color: #8b5e3c;
+        cursor: pointer;
+      }
+      .navbar-extra a:hover {
+        color: #c97b63;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 70vh;
+        background: url('img/hero-background.jpg') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero .content {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 2rem 3rem;
+        border-radius: 10px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .hero h1 span {
+        color: #c97b63;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 1.8rem;
+      }
+      .cta {
+        background-color: #c97b63;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      .cta:hover {
+        background-color: #8b5e3c;
+      }
+
+      /* About Section */
+      .about {
+        padding: 3rem 2rem;
+        max-width: 1100px;
+        margin: 2rem auto;
+      }
+      .about h2 {
+        font-size: 2.2rem;
+        color: #c97b63;
+        margin-bottom: 1.5rem;
+      }
+      .about h2 span {
+        color: #8b5e3c;
+      }
+      .row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .about-img {
+        flex: 1;
+        min-width: 280px;
+      }
+      .about-img img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(201, 123, 99, 0.3);
+      }
+      .content {
+        flex: 2;
+        min-width: 300px;
+      }
+       footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f0e3;
+      font-size: 0.9rem;
+      color: #8b5e3c;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+      .content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #8b5e3c;
+      }
+      .content p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .content p strong {
+        color: #c97b63;
+      }
+      .content p em {
+        font-style: italic;
+        color: #b37754;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .navbar-nav {
+          flex-direction: column;
+          background-color: #f8f0e3;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          width: 200px;
+          display: none;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          border-radius: 5px;
+          padding: 1rem 0;
+        }
+
+        .navbar-nav.active {
+          display: flex;
+        }
+
+        .navbar-nav a, .navbar-nav > div > a {
+          padding: 0.7rem 1.2rem;
+          font-size: 1.1rem;
+        }
+
+        .navbar .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background-color: transparent;
+          display: none;
+          padding-left: 1rem;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+          display: none;
+        }
+
+        .navbar .dropdown.active .dropdown-content {
+          display: block;
+        }
+
+        .navbar-extra {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <!-- <a href="#" class="navbar-logo"
+        >Toko Kue Online by<span> Nawla Tsalisa</span>.</a
+      > -->
+
+      <div class="navbar-nav" id="navbarNav">
+        <a href="index.html">Home</a>
+        <a href="lotus.html">Lotus Cake</a>
+        <a href="strawbery.html">Strawberry Cake</a>
+        <a href="mango.html">Mango Fla Cake</a>
+        <a href="chocolate.html">Chocolate Cake</a>
+        <a href="velvet.html">Red Velvet Cake</a>
+
+      </div>
+
+      <div class="navbar-extra">
+        <!-- <a href="kontak.html" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>
+          Order<span>Now</span>
+        </h1>
+        <p>Banyak varian cake yang lezattz</p>
+        <a href="kontak.html" class="cta">Belanja Sekarang</a>
+      </main>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>
+        <span>Lotus </span> Cake
+      </h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/Tentang-Kami2.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+  <strong>Kue Lotus 1</strong> dari Toko Kue Online Nawla Tsalisa adalah kue istimewa yang memadukan kelembutan sponge cake vanila dengan rasa karamel khas dari Lotus Biscoff. Dibuat secara handmade dengan ketelitian tinggi, kue ini menjadi simbol keanggunan dan rasa manis yang seimbang.
+</p>
+<p>
+  Setiap lapisan kue dilapisi dengan krim lotus yang lembut dan dihiasi dengan remah biskuit lotus renyah di bagian atas. Karamel asin ringan dan buttercream premium menambah kesempurnaan pada setiap gigitan. Cocok untuk acara formal, kado elegan, atau hadiah untuk orang terkasih.
+</p>
+<p>
+  Dengan tampilan modern dan rasa yang tak tertandingi, <strong>Kue Lotus 1</strong> adalah pilihan utama bagi pecinta dessert yang mencari kombinasi rasa unik dan kemewahan dalam satu sajian. Rasakan pengalaman rasa yang elegan dan manis dalam harmoni yang sempurna.
+</p>
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/l2.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+  <strong>Kue Lotus 2</strong> hadir dengan kombinasi lembut antara sponge cake karamel dan krim Lotus yang creamy. Disusun dalam tiga lapisan sempurna, setiap bagian memberikan rasa manis yang dalam namun tidak berlebihan, cocok untuk dinikmati segala usia.
+</p>
+<p>
+  Topping khas biskuit Lotus yang dihancurkan dan drizzle sirup karamel memberikan tekstur unik yang kontras dengan lembutnya cake. Sangat cocok untuk hidangan sore bersama teh hangat atau hampers eksklusif di hari spesial.
+</p>
+<p>
+  Dengan tampilan sederhana namun elegan, Kue Lotus 2 adalah pilihan tepat bagi mereka yang menginginkan kelezatan khas Lotus dengan kesan yang lebih klasik dan hangat.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/l3.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+         <p>
+  <strong>Kue Lotus 3</strong> merupakan perpaduan inovatif antara sponge cake coklat lembut dan krim Lotus karamel yang khas. Dibalut dengan lapisan glaze lotus yang mengkilap dan ditaburi crumble biskuit, setiap potongannya memberikan pengalaman rasa yang kompleks namun harmonis.
+</p>
+<p>
+  Rasa coklat yang dalam bertemu dengan aroma biskuit Lotus, menghasilkan sensasi manis-gurih yang memikat, cocok untuk Anda yang menginginkan sesuatu yang berbeda dari kue lotus pada umumnya.
+</p>
+<p>
+  Dirancang untuk pecinta dessert yang menyukai eksperimen rasa tanpa meninggalkan cita rasa autentik, Kue Lotus 3 adalah pilihan tepat untuk memanjakan tamu spesial atau sebagai centerpiece di setiap perayaan.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/l4.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+         <p>
+  <strong>Kue Lotus 4</strong> adalah pilihan bagi pencinta kue bertekstur lembut namun beraroma kuat. Menggunakan sponge cake rasa kayu manis yang dibalut krim Lotus whipped ganache, kue ini menghadirkan rasa unik dan menenangkan.
+</p>
+<p>
+  Kue ini didekorasi dengan swirl krim lotus dan topping potongan biskuit utuh yang ditata artistik. Setiap potongannya menciptakan rasa earthy dan manis yang dalam, menghadirkan sensasi bakery Eropa dalam setiap gigitan.
+</p>
+<p>
+  Cocok sebagai sajian eksklusif untuk pertemuan penting, hampers premium, atau kejutan elegan bagi orang spesial.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/l5.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+         <p>
+  <strong>Kue Lotus 5</strong> mengusung konsep kekinian dengan tampilan modern dan rasa yang bold. Terdiri dari sponge cake vanilla lembut, mousse lotus yang airy, dan lapisan biskuit lotus karamel di bagian dasar, menciptakan sensasi berlapis yang memikat.
+</p>
+<p>
+  Sentuhan terakhir berupa gold dust edible dan dekorasi minimalis membuat kue ini tampak mewah dan sangat Instagramable. Setiap elemen dirancang untuk menonjolkan rasa Lotus Biscoff yang otentik namun tetap ringan di mulut.
+</p>
+<p>
+  Ideal untuk acara glamor, photoshoot cake table, atau pelanggan yang menginginkan kombinasi rasa modern dan tampilan mewah.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Feather Icons Replace -->
+    <script>
+      feather.replace();
+
+      // Hamburger menu toggle for mobile
+      const hamburger = document.getElementById("hamburger-menu");
+      const navbarNav = document.getElementById("navbarNav");
+      const menuDropdown = document.getElementById("menuDropdown");
+
+      hamburger.addEventListener("click", () => {
+        navbarNav.classList.toggle("active");
+      });
+
+      // Dropdown toggle on mobile (click)
+      menuDropdown.querySelector("a").addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          menuDropdown.classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+  <footer>
+    &copy; 2025 Toko Kue Online Nawla Tsalisa. All rights reserved.
+  </footer>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toko Kue Online Nawla Tsalisa</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <style>
+      /* Basic reset & font */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f0e3;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-logo {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #c97b63;
+        text-decoration: none;
+      }
+      .navbar-logo span {
+        color: #8b5e3c;
+        margin-left: 0.3rem;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .navbar-nav a,
+      .navbar-nav > div > a {
+        text-decoration: none;
+        color: #8b5e3c;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+        transition: color 0.3s ease;
+      }
+      .navbar-nav a:hover,
+      .navbar-nav > div > a:hover {
+        color: #c97b63;
+      }
+
+      /* Dropdown */
+      .navbar .dropdown {
+        position: relative;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 130%;
+        left: 0;
+        background-color: #f8f0e3;
+        min-width: 180px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 10000;
+      }
+
+      .navbar .dropdown-content a {
+        color: #8b5e3c;
+        padding: 0.6rem 1rem;
+        display: block;
+        font-weight: 400;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #c97b63;
+        color: white;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Navbar extra icons */
+      .navbar-extra a {
+        margin-left: 1rem;
+        color: #8b5e3c;
+        cursor: pointer;
+      }
+      .navbar-extra a:hover {
+        color: #c97b63;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 70vh;
+        background: url('img/hero-background.jpg') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero .content {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 2rem 3rem;
+        border-radius: 10px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .hero h1 span {
+        color: #c97b63;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 1.8rem;
+      }
+      .cta {
+        background-color: #c97b63;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      .cta:hover {
+        background-color: #8b5e3c;
+      }
+
+      /* About Section */
+      .about {
+        padding: 3rem 2rem;
+        max-width: 1100px;
+        margin: 2rem auto;
+      }
+      .about h2 {
+        font-size: 2.2rem;
+        color: #c97b63;
+        margin-bottom: 1.5rem;
+      }
+      .about h2 span {
+        color: #8b5e3c;
+      }
+      .row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .about-img {
+        flex: 1;
+        min-width: 280px;
+      }
+      .about-img img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(201, 123, 99, 0.3);
+      }
+      .content {
+        flex: 2;
+        min-width: 300px;
+      }
+       footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f0e3;
+      font-size: 0.9rem;
+      color: #8b5e3c;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+      .content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #8b5e3c;
+      }
+      .content p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .content p strong {
+        color: #c97b63;
+      }
+      .content p em {
+        font-style: italic;
+        color: #b37754;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .navbar-nav {
+          flex-direction: column;
+          background-color: #f8f0e3;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          width: 200px;
+          display: none;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          border-radius: 5px;
+          padding: 1rem 0;
+        }
+
+        .navbar-nav.active {
+          display: flex;
+        }
+
+        .navbar-nav a, .navbar-nav > div > a {
+          padding: 0.7rem 1.2rem;
+          font-size: 1.1rem;
+        }
+
+        .navbar .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background-color: transparent;
+          display: none;
+          padding-left: 1rem;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+          display: none;
+        }
+
+        .navbar .dropdown.active .dropdown-content {
+          display: block;
+        }
+
+        .navbar-extra {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <!-- <a href="#" class="navbar-logo"
+        >Toko Kue Online by<span> Nawla Tsalisa</span>.</a
+      > -->
+
+      <div class="navbar-nav" id="navbarNav">
+        <a href="index.html">Home</a>
+        <a href="lotus.html">Lotus Cake</a>
+        <a href="strawbery.html">Strawberry Cake</a>
+        <a href="mango.html">Mango Fla Cake</a>
+        <a href="chocolate.html">Chocolate Cake</a>
+        <a href="velvet.html">Red Velvet Cake</a>
+
+      </div>
+
+      <div class="navbar-extra">
+        <!-- <a href="kontak.html" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>
+          Order<span>Now</span>
+        </h1>
+        <p>Banyak varian cake yang lezattz</p>
+        <a href="kontak.html" class="cta">Belanja Sekarang</a>
+      </main>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>
+        <span>Mango Fla </span> Cake
+      </h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/m1.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+  <strong>Kue Mango Fla 1</strong> adalah kue tropis yang memadukan kesegaran mangga segar dengan lembutnya sponge cake vanilla. Disempurnakan dengan lapisan fla mangga yang creamy dan manis alami, kue ini menciptakan sensasi rasa yang menyegarkan di setiap gigitan.
+</p>
+<p>
+  Dengan topping potongan mangga asli dan siraman saus mango glaze, tampilan kue ini sangat menggoda dan cocok untuk segala suasana, mulai dari pesta keluarga hingga kejutan untuk orang tersayang.
+</p>
+<p>
+  Dibuat dengan bahan berkualitas dan tanpa pengawet, Kue Mango Fla 1 adalah pilihan ideal bagi Anda yang menginginkan sentuhan manis alami dalam momen spesial. Nikmati kesegarannya sekarang juga!
+</p>
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/m2.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+  <strong>Kue Mango Fla 2</strong> menghadirkan kombinasi sempurna antara kelembutan cake vanilla dan fla mangga yang kaya rasa. Setiap lapisan diisi dengan krim mangga segar yang dibuat dari buah pilihan, memberikan sensasi manis dan asam yang seimbang.
+</p>
+<p>
+  Hiasan atasnya berupa irisan mangga segar dan taburan remah biskuit memberikan tekstur renyah yang kontras dengan kelembutan cake, menjadikan kue ini favorit di segala acara.
+</p>
+<p>
+  Nikmati kesegaran tropis dalam setiap gigitan dan jadikan momen Anda lebih berwarna dengan Kue Mango Fla 2.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+<div class="row">
+        <div class="about-img">
+          <img src="img/m3.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+        <p>
+  <strong>Kue Mango Fla 3</strong> adalah perpaduan cita rasa klasik dan modern. Dengan sponge cake lembut yang dipadukan fla mangga lembut dan saus mangga premium, kue ini menciptakan pengalaman rasa yang memanjakan lidah.
+</p>
+<p>
+  Lapisan mousse mangga yang ringan dan segar memberikan sensasi sejuk, sementara topping whipped cream menambah kelembutan dan daya tarik visual yang cantik.
+</p>
+<p>
+  Cocok untuk acara ulang tahun maupun santai bersama keluarga. Rasakan kenikmatan tropis yang sesungguhnya di setiap potongannya.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/m4.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+  <strong>Kue Mango Fla 4</strong> dibuat dari bahan-bahan terbaik, menggabungkan tekstur lembut sponge cake dengan fla mangga yang creamy dan legit. Ditambah sentuhan manis alami dari sirup mangga, memberikan rasa yang kaya dan memuaskan.
+</p>
+<p>
+  Kue ini dihias dengan potongan mangga segar dan taburan kelapa parut, menambah aroma dan cita rasa khas tropis yang menggugah selera.
+</p>
+<p>
+  Pilihan tepat untuk menyambut musim panas atau sebagai hadiah manis yang menyenangkan hati.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/m5.png" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+         <p>
+  <strong>Kue Mango Fla 5</strong> menawarkan pengalaman rasa mangga yang mewah dengan kombinasi sponge cake lembut, fla mangga segar, dan mousse vanilla ringan. Setiap lapisan dikombinasikan dengan sempurna untuk menciptakan keseimbangan rasa yang memikat.
+</p>
+<p>
+  Dihiasi dengan glaze mangga yang mengilap dan taburan potongan buah tropis lainnya, kue ini tidak hanya lezat tapi juga cantik dipandang.
+</p>
+<p>
+  Ideal untuk berbagai acara spesial atau sekadar menikmati camilan manis yang menyegarkan di hari Anda.
+</p>
+
+
+          <a href="kontak.html" style="text-decoration: none; color: inherit;">
+  <h3>Pesan sekarang 🤍</h3>
+</a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Feather Icons Replace -->
+    <script>
+      feather.replace();
+
+      // Hamburger menu toggle for mobile
+      const hamburger = document.getElementById("hamburger-menu");
+      const navbarNav = document.getElementById("navbarNav");
+      const menuDropdown = document.getElementById("menuDropdown");
+
+      hamburger.addEventListener("click", () => {
+        navbarNav.classList.toggle("active");
+      });
+
+      // Dropdown toggle on mobile (click)
+      menuDropdown.querySelector("a").addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          menuDropdown.classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+  <footer>
+    &copy; 2025 Toko Kue Online Nawla Tsalisa. All rights reserved.
+  </footer>
+</html>

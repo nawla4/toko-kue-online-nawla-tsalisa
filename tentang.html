@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toko Kue Online Nawla Tsalisa</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <style>
+      /* Basic reset & font */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+       footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f0e3;
+      font-size: 0.9rem;
+      color: #8b5e3c;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f0e3;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-logo {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #c97b63;
+        text-decoration: none;
+      }
+      .navbar-logo span {
+        color: #8b5e3c;
+        margin-left: 0.3rem;
+      }
+
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .navbar-nav a,
+      .navbar-nav > div > a {
+        text-decoration: none;
+        color: #8b5e3c;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+        transition: color 0.3s ease;
+      }
+      .navbar-nav a:hover,
+      .navbar-nav > div > a:hover {
+        color: #c97b63;
+      }
+
+      /* Dropdown */
+      .navbar .dropdown {
+        position: relative;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 130%;
+        left: 0;
+        background-color: #f8f0e3;
+        min-width: 180px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 10000;
+      }
+
+      .navbar .dropdown-content a {
+        color: #8b5e3c;
+        padding: 0.6rem 1rem;
+        display: block;
+        font-weight: 400;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #c97b63;
+        color: white;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Navbar extra icons */
+      .navbar-extra a {
+        margin-left: 1rem;
+        color: #8b5e3c;
+        cursor: pointer;
+      }
+      .navbar-extra a:hover {
+        color: #c97b63;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 70vh;
+        background: url('img/hero-background.jpg') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero .content {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 2rem 3rem;
+        border-radius: 10px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .hero h1 span {
+        color: #c97b63;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 1.8rem;
+      }
+      .cta {
+        background-color: #c97b63;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      .cta:hover {
+        background-color: #8b5e3c;
+      }
+
+      /* About Section */
+      .about {
+        padding: 3rem 2rem;
+        max-width: 1100px;
+        margin: 2rem auto;
+      }
+      .about h2 {
+        font-size: 2.2rem;
+        color: #c97b63;
+        margin-bottom: 1.5rem;
+      }
+      .about h2 span {
+        color: #8b5e3c;
+      }
+      .row {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .about-img {
+        flex: 1;
+        min-width: 280px;
+      }
+      .about-img img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(201, 123, 99, 0.3);
+      }
+      .content {
+        flex: 2;
+        min-width: 300px;
+      }
+      .content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #8b5e3c;
+      }
+      .content p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .content p strong {
+        color: #c97b63;
+      }
+      .content p em {
+        font-style: italic;
+        color: #b37754;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .navbar-nav {
+          flex-direction: column;
+          background-color: #f8f0e3;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          width: 200px;
+          display: none;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          border-radius: 5px;
+          padding: 1rem 0;
+        }
+
+        .navbar-nav.active {
+          display: flex;
+        }
+
+        .navbar-nav a, .navbar-nav > div > a {
+          padding: 0.7rem 1.2rem;
+          font-size: 1.1rem;
+        }
+
+        .navbar .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background-color: transparent;
+          display: none;
+          padding-left: 1rem;
+        }
+
+        .navbar .dropdown:hover .dropdown-content {
+          display: none;
+        }
+
+        .navbar .dropdown.active .dropdown-content {
+          display: block;
+        }
+
+        .navbar-extra {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <!-- <a href="#" class="navbar-logo"
+        >Toko Kue Online by<span> Nawla Tsalisa</span>.</a
+      > -->
+
+      <div class="navbar-nav" id="navbarNav">
+        <a href="index.html">Home</a>
+        <a href="lotus.html">Lotus Cake</a>
+        <a href="strawbery.html">Strawberry Cake</a>
+        <a href="mango.html">Mango Fla Cake</a>
+        <a href="chocolate.html">Chocolate Cake</a>
+        <a href="velvet.html">Red Velvet Cake</a>
+
+      </div>
+
+      <div class="navbar-extra">
+        <!-- <a href="kontak.html" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Hero Section -->
+    
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2>
+        <span>Tentang</span> Kami
+      </h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="img/Tentang-Kami2.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Terima kasih telah mengunjungi toko kami 🤍</h3>
+          <p>
+            <strong>Toko Kue Online Nawla Tsalisa</strong> adalah rumah bagi berbagai kreasi kue
+            berkualitas tinggi yang dibuat dengan cinta, ketelitian, dan rasa
+            hormat terhadap setiap momen berharga Anda. Sejak awal berdiri, kami
+            berkomitmen untuk menghadirkan lebih dari sekadar kue — kami
+            menciptakan pengalaman rasa yang menyentuh hati.
+          </p>
+          <p>
+            Kami percaya bahwa setiap kue memiliki cerita. Dari ulang tahun anak
+            pertama, pernikahan impian, hingga kejutan sederhana untuk orang
+            tersayang — kami hadir untuk membuat setiap momen itu lebih manis.
+            Dengan menggunakan bahan-bahan premium dan resep pilihan, tim kami
+            terus berinovasi menghadirkan produk-produk seperti
+            <em>Lotus Cake</em>, <em>Strawberry Delight</em>, dan
+            <em>Mango Fla Cake</em> yang tidak hanya lezat tapi juga memikat
+            mata.
+          </p>
+          <p>
+            Dengan pelayanan ramah, desain yang dapat disesuaikan, dan dedikasi
+            terhadap kualitas, kami berharap setiap pelanggan yang datang merasa
+            seperti bagian dari keluarga kami. Selamat datang di
+            <strong>Toko Kue Online Nawla Tsalisa</strong>, tempat di mana setiap lapisan kue
+            membawa kebahagiaan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feather Icons Replace -->
+    <script>
+      feather.replace();
+
+      // Hamburger menu toggle for mobile
+      const hamburger = document.getElementById("hamburger-menu");
+      const navbarNav = document.getElementById("navbarNav");
+      const menuDropdown = document.getElementById("menuDropdown");
+
+      hamburger.addEventListener("click", () => {
+        navbarNav.classList.toggle("active");
+      });
+
+      // Dropdown toggle on mobile (click)
+      menuDropdown.querySelector("a").addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          menuDropdown.classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+  <footer>
+    &copy; 2025 Toko Kue Online Nawla Tsalisa. All rights reserved.
+  </footer>
+</html>
